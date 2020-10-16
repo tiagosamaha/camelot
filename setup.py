@@ -23,8 +23,9 @@ requires = [
     'PyPDF2>=1.26.0'
 ]
 
-cv_requires = [
-    'opencv-python>=3.4.2.17'
+base_requires = [
+    'opencv-python>=3.4.2.17',
+    'pdftopng>=0.1.0'
 ]
 
 plot_requires = [
@@ -40,7 +41,7 @@ dev_requires = [
     'Sphinx>=3.1.2'
 ]
 
-all_requires = cv_requires + plot_requires
+all_requires = base_requires + plot_requires
 dev_requires = dev_requires + all_requires
 
 
@@ -58,7 +59,7 @@ def setup_package():
                     install_requires=requires,
                     extras_require={
                         'all': all_requires,
-                        'cv': cv_requires,
+                        'base': base_requires,
                         'dev': dev_requires,
                         'plot': plot_requires
                     },
